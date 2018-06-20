@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="movie in movies" :key="movie.id">
+  <div id="movie-list">
+    <div v-for="movie in movies" :key="movie.id" class="movie">
       {{ movie.title }}
     </div>
   </div>
