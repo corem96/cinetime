@@ -9,7 +9,7 @@
       <div id="main" class="main">
 
         <movie-list></movie-list>
-        <movie-filter></movie-filter>
+        <movie-filter v-on:check-filter="checkFilter"></movie-filter>
 
       </div>
     </div>
@@ -27,6 +27,11 @@ export default {
   components: {
     'movie-list': movieList,
     'movie-filter': movieFilter
+  },
+  methods: {
+    checkFilter(cathegory, title, state) {
+
+    }
   }
 }
 </script>
