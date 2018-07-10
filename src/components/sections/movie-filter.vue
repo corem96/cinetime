@@ -3,7 +3,6 @@
     <h2>Filter results</h2>
     <div class="filter-group">
       <check-filter v-for="genre in genres" :key="genre" v-bind:title="genre" v-on:check-filter="checkFilter"></check-filter>
-      <!-- <check-filter v-bind="genres"></check-filter> -->
     </div>
   </div>
 </template>
@@ -22,8 +21,8 @@ import Genres from '@/utils/genres'
       }
     },
     methods: {
-      checkFilter(cathegory, title, state) {
-        this.$emit('check-filter', cathegory, title, state)
+      checkFilter(category, title, state) {
+        this.$emit('check-filter', category, title, state)
       }
     }
   }

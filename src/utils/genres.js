@@ -16,6 +16,7 @@ export default {
   NOIR: 'Noir',
   ROMANCE: 'Romance',
   SPORTS: 'Sports',
+  SCIFI: 'Science fiction',
   THRILLER: 'Thriller',
   WESTERN: 'Western',
   WAR: 'War'

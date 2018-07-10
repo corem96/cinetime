@@ -8,7 +8,7 @@
     <div id="overview">
       <div id="main" class="main">
 
-        <movie-list></movie-list>
+        <movie-list v-bind:genre="genre" v-bind:time="time"></movie-list>
         <movie-filter v-on:check-filter="checkFilter"></movie-filter>
 
       </div>
@@ -20,7 +20,7 @@
 
 <script>
 import movieList from '@/components/sections/movie-list'
-import movieFilter from '@/components/sections/movie-filter';
+import movieFilter from '@/components/sections/movie-filter'
 
 export default {
   name: 'App',
@@ -28,9 +28,22 @@ export default {
     'movie-list': movieList,
     'movie-filter': movieFilter
   },
+  data() {
+    return {
+      genre: [],
+      time: []
+    }
+  },
   methods: {
-    checkFilter(cathegory, title, state) {
-
+    checkFilter(category, title, state) {
+      if(category) {
+        this[category].push(title)
+      } else {
+        let index = this[category].indexOf(title)
+        if (index > -1) {
+          this[category].splice(index, 1)
+        }
+      }
     }
   }
 }
