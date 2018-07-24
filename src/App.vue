@@ -8,7 +8,8 @@
     <div id="overview">
       <div id="main" class="main">
 
-        <movie-list v-bind:genre="genre" v-bind:time="time"></movie-list>
+        <!-- <movie-list v-bind:genre="genre" v-bind:time="time" v-bind:movies="movies"></movie-list> -->
+        <movie-list v-bind:genre="genre" v-bind:time="time" ></movie-list>
         <movie-filter v-on:check-filter="checkFilter"></movie-filter>
 
       </div>
@@ -21,12 +22,13 @@
 <script>
 import movieList from '@/components/sections/movie-list'
 import movieFilter from '@/components/sections/movie-filter'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    'movie-list': movieList,
-    'movie-filter': movieFilter
+    movieList,
+    movieFilter
   },
   data() {
     return {
@@ -45,6 +47,12 @@ export default {
         }
       }
     }
+  },
+  created () {
+    axios.get('http://localhost:8080:api')
+    .then(r => {
+      console.log(res)
+    })
   }
 }
 </script>
